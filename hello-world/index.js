@@ -1,13 +1,25 @@
 // Dependencies
 const express = require("express");
-
+const mongoose = require("mongoose");
 // Instantiations
 const app = express();
 
 // Configurations
+// mongoose.createConnection(process.env.DATABASE,{
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
-// Middleware
+// mongoose.connection
+//   .once("open", () => {
+//     console.log("Mongoose connection open");
+//   })
+//   .on("error", err => {
+//     console.error(`Connection error: ${err.message}`);
+//  });
+ // Middleware
 app.use(express.urlencoded({extended:true}))
+app.use(express.json()); // To return data in the response path
 // Route
 // app.get("/", (req, res) => {
 //   res.send("Homepage! Hello world.");
@@ -57,8 +69,9 @@ app.get("/signup", (req, res) => {
 
 app.post("/signup", (req, res) => {
   console.log(req.body)
+  let baby=req.body
   // res.redirect("/index")
-  res.send("You have registered a baby")
+  res.json({message:"baby registered",baby})
 });
 
 // For invalid routes
