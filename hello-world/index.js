@@ -1,22 +1,26 @@
 // Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 // Instantiations
 const app = express();
 
 // Configurations
-// mongoose.createConnection(process.env.DATABASE,{
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
+mongoose.createConnection(process.env.DATABASE,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-// mongoose.connection
-//   .once("open", () => {
-//     console.log("Mongoose connection open");
-//   })
-//   .on("error", err => {
-//     console.error(`Connection error: ${err.message}`);
-//  });
+mongoose.connection
+  .once("open", () => {
+    console.log("Mongoose connection open");
+  })
+  .on("error", err => {
+    console.error(`Connection error: ${err.message}`);
+ });
+
+app.set("view engine", "pug") // Setting the view engine to pug
+app.set("views", path.join(__dirname, "views")); // Specify the directory where the views are found
  // Middleware
 app.use(express.urlencoded({extended:true}))
 app.use(express.json()); // To return data in the response path
