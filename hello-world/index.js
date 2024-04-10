@@ -2,11 +2,18 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+
+
+require("dotenv").config();
+
+// Importing routes
+const registrationRoutes = require("./routes/registrationRoutes")
+
 // Instantiations
 const app = express();
 
 // Configurations
-mongoose.createConnection(process.env.DATABASE,{
+mongoose.connect(process.env.DATABASE,{
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -21,10 +28,20 @@ mongoose.connection
 
 app.set("view engine", "pug") // Setting the view engine to pug
 app.set("views", path.join(__dirname, "views")); // Specify the directory where the views are found
- // Middleware
+
+// Middleware
+app.use(express.static(path.join(__dirname, "public"))) // Set directory for static files
 app.use(express.urlencoded({extended:true}))
 app.use(express.json()); // To return data in the response path
-// Route
+
+// Routes
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+// Use imported routes
+app.use("/", registrationRoutes);
+
 // app.get("/", (req, res) => {
 //   res.send("Homepage! Hello world.");
 // });
@@ -67,16 +84,6 @@ app.use(express.json()); // To return data in the response path
 //   res.sendFile(__dirname + "/index.html");
 // });
 
-app.get("/signup", (req, res) => {
-  res.sendFile(__dirname + "/signup.html");
-});
-
-app.post("/signup", (req, res) => {
-  console.log(req.body)
-  let baby=req.body
-  // res.redirect("/index")
-  res.json({message:"baby registered",baby})
-});
 
 // For invalid routes
 app.get("*", (req, res) => {

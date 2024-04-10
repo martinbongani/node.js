@@ -1,0 +1,129 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Baby Application Form
+link(rel='stylesheet' href='/css/style.css')
+link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.css')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+div(w3-include-html='/pages/navbar.html')
+.container-shop
+form#form(action="register" method="POST")
+  .container.col-4
+    h2 Baby&apos;s Application Form
+    hr
+    h4 Baby&apos;s Details
+    .mb-3
+      label.form-label(for='firstName') First Name
+      input#exampleInputFirstName.form-control(type='text' aria-describedby='emailHelp' name='firstName')
+    .mb-3
+      label.form-label(for='lastName') Last Name
+      input#exampleInputLastName.form-control(type='text' name='lastName')
+    .mb-3
+      label.birthday(for='exampleCheck1') Date of Birth:
+      input#exampleDOB.form-control(type='date' name='dateOfBirth')
+    .mb-3
+      label.form-label(for='sex') Sex
+      select.form-select(aria-label='Default select example' name='sex')
+        option(value='') Select Sex
+        option(value='1') Female
+        option(value='2') Male
+    .mb-3
+      label.form-label(for='address') Address
+      input#exampleInputAddress.form-control(type='text' aria-describedby='emailHelp' name='address')
+    .mb-3
+      label.form-label(for='religion') Religion
+      select.form-select(aria-label='Default select example' name='religion')
+        option(value='') Select Religion
+        option(value='1') Christianity
+        option(value='2') Islam
+        option(value='3') Others
+    hr
+    h4 Father&apos;s Details
+    .mb-3
+      label.form-label(for='firstName') First Name
+      input#exampleInputFirstName.form-control(type='text' aria-describedby='emailHelp' name='fathersFirstName')
+    .mb-3
+      label.form-label(for='lastName') Last Name
+      input#exampleInputLastName.form-control(type='text' name='fathersLastName')
+    .mb-3
+      label.form-label(for='email') Email
+      input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' name='fathersEmail')
+    .mb-3
+      label.form-label(for='phone') Phone
+      input#exampleInputPhone.form-control(type='tel' aria-describedby='emailHelp' name='fathersPhone')
+    .mb-3
+      label.form-label(for='nin') National ID Number
+      input#exampleInputNIN.form-control(type='text' aria-describedby='emailHelp' name='fathersNID')
+    .mb-3
+      label.birthday(for='exampleCheck1') Date of Birth:
+      input#exampleDOB.form-control(type='date' name='fathersDOB')
+    .mb-3
+      label.form-label(for='maritalStatus') Marital Status
+      select.form-select(aria-label='Default select example' name='fathersMaritalStatus')
+        option(value='') Select Marital Status
+        option(value='single') Single
+        option(value='married') Married
+        option(value='divorced') Divorced
+        option(value='widowed') Widowed
+        option(value='other') Other
+    .mb-3
+      label.form-label(for='occupation') Occupation
+      input#exampleInputOccupation.form-control(type='text' aria-describedby='emailHelp' name='fathersOccupation')
+    .mb-3
+      label.form-label(for='address') Address
+      input#exampleInputAddress.form-control(type='text' aria-describedby='emailHelp' name='fathersAddress')
+    .mb-3
+      label.form-label(for='religion') Religion
+      select.form-select(aria-label='Default select example' name='fathersReligion')
+        option(value='') Select Religion
+        option(value='1') Christianity
+        option(value='2') Islam
+        option(value='3') Others
+    hr
+    h4 Mother&apos;s Details
+    .mb-3
+      label.form-label(for='firstName') First Name
+      input#exampleInputFirstName.form-control(type='text' aria-describedby='emailHelp' name='mothersFirstName')
+    .mb-3
+      label.form-label(for='lastName') Last Name
+      input#exampleInputLastName.form-control(type='text' name='mothersLastName')
+    .mb-3
+      label.form-label(for='email') Email
+      input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' name='mothersEmail')
+    .mb-3
+      label.form-label(for='phone') Phone
+      input#exampleInputPhone.form-control(type='tel' aria-describedby='emailHelp' name='mothersPhone')
+    .mb-3
+      label.form-label(for='nin') National ID Number
+      input#exampleInputNIN.form-control(type='text' aria-describedby='emailHelp' name='mothersNID')
+    .mb-3
+      label.birthday(for='exampleCheck1') Date of Birth:
+      input#exampleDOB.form-control(type='date' name='mothersDOB')
+    .mb-3
+      label.form-label(for='maritalStatus') Marital Status
+      select.form-select(aria-label='Default select example' name='mothersMaritalStatus')
+        option(value='') Select Marital Status
+        option(value='single') Single
+        option(value='married') Married
+        option(value='divorced') Divorced
+        option(value='widowed') Widowed
+        option(value='other') Other
+    .mb-3
+      label.form-label(for='occupation') Occupation
+      input#exampleInputOccupation.form-control(type='text' aria-describedby='emailHelp' name='mothersOccupation')
+    .mb-3
+      label.form-label(for='address') Address
+      input#exampleInputAddress.form-control(type='text' aria-describedby='emailHelp' name='mothersAddress')
+    .mb-3
+      label.form-label(for='religion') Religion
+      select.form-select(aria-label='Default select example' name='mothersReligion')
+        option(value='') Select Religion
+        option(value='1') Christianity
+        option(value='2') Islam
+        option(value='3') Others
+    button.btn.btn-primary.col-12(type='submit') Submit Application
+div(w3-include-html='/pages/footer.html')
+script(src='/js/babyapplication.js')
+script(src='/css/bootstrap/js/bootstrap.bundle.js')
+script(src='/js/add.js')

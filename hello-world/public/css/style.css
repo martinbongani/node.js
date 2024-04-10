@@ -1,0 +1,338 @@
+body {
+    background-color: peachpuff;
+}
+
+#welcome {
+padding: 70px 1px 1px 1px;
+background-color:rgb(255, 213, 0);
+margin: auto;
+text-align: center;
+}
+
+#form {
+text-align: left;
+padding: 0 0 70px 0;
+
+}
+
+span.psw {
+  display: block;
+  float: right;
+}
+
+.button-container {
+    padding: 10px 0 10px 0;
+    align-content: center;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    display: block;
+
+}
+
+  /* Icons */
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 63px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  /* LinkedIn */
+  .fa-linkedin{
+    background: #3B5998;
+    color: white;
+  }
+
+/* YouTube */
+.fa-youtube{
+    background: #f50909;
+    color: white;
+}
+
+/* instagram */
+.fa-instagram{
+    background: #d34989;
+    color: white;
+}
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .carousel-item {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    /* opacity: 0.5; */
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .container-shop {
+    max-width: 800px;
+    margin: auto;
+    padding: 70px 0 5px 0;
+}
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+  margin-top: 50px;
+}
+
+.product {
+    border: 3px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    display: grid;
+    /* letter-spacing: 1px; */
+    /* box-shadow: 50px 50px ; */
+}
+
+.product h3 {
+  font-size: medium;
+}
+
+.product img {
+  width: 100%;
+}
+
+
+
+#cart {
+  /* position: fixed; */
+  /* left: 100%; */
+  width: 300px;
+  /* background-color: #55ACEE; */
+  /* height: 100vh; */
+}
+
+.cart-item {
+    padding: 10px;
+    background-color: azure;
+    text-align: justify;
+    display: grid;
+}
+
+.cart-total {
+    margin-top: 10px;
+    font-weight: bold;
+    background-color: black;
+    color: beige;
+    padding: 10px;
+}
+
+.checkout-button {
+  background-color: #E8BC0E;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cart .checkOut div:nth-child(2){
+  background-color: #1C1F25;
+  color: #fff;
+}
+
+.active .cart {
+  left: calc(100% - 300px);
+}
+
+.active .container-shop {
+  transform: translateX(-100px);
+}
+
+.cart-item img {
+  width: 70%;
+}
+
+.cart-item span {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.remove-button {
+  display: inline-block;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.dash ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.dash ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.dash ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dash ul li a:hover {
+  color: orange;
+}
+
+.dash .dropdown-menu {
+  text-align: left;
+  padding: 5px;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+/* Add your CSS styles here */
+/* .container {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+} */
+
+fieldset {
+  margin-bottom: 20px;
+  border: 1px solid #1c0a0a;
+  padding: 10px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* button:hover {
+  background-color: #0056b3;
+} */
+
+.note {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.card-sec .card-img {
+  width: 50%;
+  height: auto;
+  border-radius: 40%;
+  margin: auto;
+  border: 10px solid orange;
+}
+
+.card-sec .card-body {
+  text-align: center;
+}
+
+.card-sec img.card-img {
+  width: 341.67px;
+  height: 400px;
+}
+
+.col-sec {
+  text-align: center;
+}
+
+.col-sec .card {
+  border: none;
+}
+
+.custom-shape-divider-top-1712483388 {
+  color: #f0f0f0;
+  text-shadow: #1c0a0a;
+  padding: 40px 0 40px 0;
+  position: relative;
+  background-color: yellowgreen;
+}
+
+.custom-shape-divider-top-1712483388::before {
+  content: '';
+  background-image: url('data:image/svg+xml,%3Csvg%20data-name%3D%22Layer%201%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20120%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0V46.29c47.79%2C22.2%2C103.59%2C32.17%2C158%2C28%2C70.36-5.37%2C136.33-33.31%2C206.8-37.5C438.64%2C32.43%2C512.34%2C53.67%2C583%2C72.05c69.27%2C18%2C138.3%2C24.88%2C209.4%2C13.08%2C36.15-6%2C69.85-17.84%2C104.45-29.34C989.49%2C25%2C1113-14.29%2C1200%2C52.47V0Z%22%20opacity%3D%22.25%22%20class%3D%22shape-fill%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M0%2C0V15.81C13%2C36.92%2C27.64%2C56.86%2C47.69%2C72.05%2C99.41%2C111.27%2C165%2C111%2C224.58%2C91.58c31.15-10.15%2C60.09-26.07%2C89.67-39.8%2C40.92-19%2C84.73-46%2C130.83-49.67%2C36.26-2.85%2C70.9%2C9.42%2C98.6%2C31.56%2C31.77%2C25.39%2C62.32%2C62%2C103.63%2C73%2C40.44%2C10.79%2C81.35-6.69%2C119.13-24.28s75.16-39%2C116.92-43.05c59.73-5.85%2C113.28%2C22.88%2C168.9%2C38.84%2C30.2%2C8.66%2C59%2C6.17%2C87.09-7.5%2C22.43-10.89%2C48-26.93%2C60.65-49.24V0Z%22%20opacity%3D%22.5%22%20class%3D%22shape-fill%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M0%2C0V5.63C149.93%2C59%2C314.09%2C71.32%2C475.83%2C42.57c43-7.64%2C84.23-20.12%2C127.61-26.46%2C59-8.63%2C112.48%2C12.24%2C165.56%2C35.4C827.93%2C77.22%2C886%2C95.24%2C951.2%2C90c86.53-7%2C172.46-45.71%2C248.8-84.81V0Z%22%20class%3D%22shape-fill%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E');
+  background-size: cover;
+  height: 630px; 
+  background-color: rgb(255, 213, 0);
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.container {
+  isolation: isolate;
+}
