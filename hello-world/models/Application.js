@@ -35,7 +35,7 @@ const applicationSchema = new mongoose.Schema({
     },
     fathersEmail:{
         type:String,
-        unique:true
+        trim:true
     },
     fathersPhone:{
         type:String,
@@ -75,7 +75,7 @@ const applicationSchema = new mongoose.Schema({
     },
     mothersEmail:{
         type:String,
-        unique:true
+        trim:true
     },
     mothersPhone:{
         type:String,

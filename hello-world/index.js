@@ -6,6 +6,8 @@ const path = require("path");
 
 require("dotenv").config();
 
+const port = 3000 // Change port number from here
+
 // Importing routes
 const registrationRoutes = require("./routes/registrationRoutes")
 
@@ -90,4 +92,4 @@ app.get("*", (req, res) => {
   res.send("404! This is an invalid URL.");
 });
 // Boostrapping the server
-app.listen(3000, () => console.log("listening on port 3000"));
+app.listen(port, () => console.log(`listening on port ${port}`));

@@ -14,7 +14,7 @@ router.post("/register", async(req, res) => {
     const baby = new Application(req.body);
     console.log(baby)
     await baby.save();
-    res.redirect("/register")
+    res.send("Baby successfully registered")
   } catch (error) {
       res.status(400).send("Sorry, something went wrong")
       console.log("Error registering the baby", error); 
