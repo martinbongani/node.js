@@ -8,10 +8,17 @@ router.get("/register", (req, res) => {
   res.render("babyapplication");
 });
 
-router.post("/register", (req, res) => {
-  const baby = new Application(req.body);
-  console.log(baby)
-  baby.save();
+// Installing the async function
+router.post("/register", async(req, res) => {
+  try {
+    const baby = new Application(req.body);
+    console.log(baby)
+    await baby.save();
+    res.redirect("/register")
+  } catch (error) {
+      res.status(400).send("Sorry, something went wrong")
+      console.log("Error registering the baby", error); 
+  }
   // res.redirect("/index")
 });
 
