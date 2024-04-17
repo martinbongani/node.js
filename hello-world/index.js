@@ -2,14 +2,24 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-
+const passport = require("passport")
+const expressSession = require("express-session")({
+  secret:"secret",
+  resave:false,
+  saveUninitialized:false
+})
 
 require("dotenv").config();
+
+// Import register model with user details
+const Register = require("./models/Register");
 
 const port = 3000 // Change port number from here
 
 // Importing routes
 const registrationRoutes = require("./routes/registrationRoutes")
+const authRoutes = require("./routes/authenticationRoutes")
+
 
 // Instantiations
 const app = express();
@@ -36,6 +46,16 @@ app.use(express.static(path.join(__dirname, "public"))) // Set directory for sta
 app.use(express.urlencoded({extended:true}))
 app.use(express.json()); // To return data in the response path
 
+// Express session configurations
+app.use(expressSession);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Passport configurations
+passport.use(Register.createStrategy());
+passport.serializeUser(Register.serializeUser());
+passport.deserializeUser(Register.deserializeUser());
+
 // Routes
 app.get("/signup", (req, res) => {
   res.render("signup");
@@ -43,6 +63,8 @@ app.get("/signup", (req, res) => {
 
 // Use imported routes
 app.use("/", registrationRoutes);
+app.use("/", authRoutes);
+
 
 // app.get("/", (req, res) => {
 //   res.send("Homepage! Hello world.");
