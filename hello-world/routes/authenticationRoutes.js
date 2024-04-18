@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
 
 // Import model
 const Register = require("../models/Register");
@@ -24,5 +25,26 @@ router.post("/register", async(req, res) => {
    }
 
 });
+
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// Installing the async function
+router.post("/login", passport.authenticate("local",{failureRedirect: "/register"}), (req, res) => {
+  res.redirect("/registersitter") // Redirect page incase login fails
+});
+
+
+router.get(/"logout", (req, res) => {
+  if(req.session){
+    req.session.destroy((error)=>{
+      if(error){
+        return res.status(500).send("Error logging out")
+      }
+      res.redirect("/login");
+    })
+  }
+})
 
 module.exports = router;

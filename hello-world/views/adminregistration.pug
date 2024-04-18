@@ -1,0 +1,16 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin Registration Form
+form(action='/models/Register.js' method='POST')
+  p Welcome
+  input(type='text' placeholder='name' name='fullName')
+  br
+  input(type='email' placeholder='email' name='email')
+  br
+  input(type='password' placeholder='Password' name='password')
+  br
+  input(type='text' placeholder='role' value='admin' name='role')
+  br
+  input(type='button' value='register')

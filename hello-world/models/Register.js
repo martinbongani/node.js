@@ -10,11 +10,7 @@ const registerSchema = new mongoose.Schema({
         type:String,
         unique:true
     },
-    password:{
-        type:String,
-        trim:true
-    },
-    role:{
+     role:{
         type:String,
         trim:true
     },

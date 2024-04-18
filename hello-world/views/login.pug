@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+link(rel='stylesheet' href='/css/style.css')
+link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.css')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+div(w3-include-html='/pages/navbar.html')
+.container-shop
+form#form
+  .container.col-3
+    h1 Login
+    label.form-label(for='exampleInputEmail1') Username
+    input#exampleInputEmail1.form-control(type='text' aria-describedby='emailHelp')
+    label.form-label(for='exampleInputPassword1') Password
+    input#exampleInputPassword1.form-control(type='password')
+    label.form-label(for='exampleInputPassword1') User
+    select.form-select(aria-label='Default select example')
+      option(value='') Select Option
+      option(value='1') Admin
+      option(value='2') Baby
+      option(value='3') Staff
+    .mb-3.form-check
+      input#remember.form-check-input(type='checkbox')
+      label.form-check-label(for='exampleCheck1') Remember me
+      span.psw
+        a(href='#') Forgot password?
+    button.btn.btn-primary.col-12(type='submit') Login
+    // <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+div(w3-include-html='/pages/footer.html')
+script(src='/js/login.js')
+script(src='/css/bootstrap/js/bootstrap.bundle.js')
+script(src='/js/add.js')
