@@ -1,0 +1,240 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin Dashboard
+link(rel='stylesheet' href='/css/style.css')
+link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.css')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+link(rel='stylesheet' href='/public/css/admin.css')
+div(w3-include-html='/pages/navbar.html')
+.container-shop
+header
+  nav.dash
+    ul
+      li
+        a(href='#dashboard') Dashboard
+      li
+        a(href='#registerBaby') Register Baby
+      li
+        a(href='#applications') Applications
+      li
+        a(href='#babies') Babies
+      li
+        a(href='#staff') Staff
+      li
+        a(href='#requisitions') Requisitions
+      li
+        a(href='#liveFeed') Live Feed
+      li
+        a(href='#yourProfile') Your Profile
+      button#logoutBtn Logout
+// Main Content
+main
+  .container-users
+    // Dashboard Section
+    #dashboard.section-users.active-users
+      .sidebar-users
+        ul
+          li
+            a(href='#realtime-updates') Updates
+          li
+            a(href='#daily-tasks') Daily Task Manager
+          li
+            a(href='#graphical-reports') Graphical Reports
+          li
+            a(href='#financial-performance') Financial Performance
+      .main-users
+        #realtime-updates.tabcontent-users
+          h2 Updates
+          #realtime-cards-container.cards-container-users
+        #daily-tasks.tabcontent-users
+          h2 Daily Task Manager
+          #tasks-container.tasks-container-users
+        #graphical-reports.tabcontent-users
+          h2 Graphical Reports
+          .graphical-reports-container-users
+            select#report-type-select
+              option(value='bar') Bar Chart
+              option(value='line') Line Chart
+              option(value='pie') Pie Chart
+            canvas#graphical-report-chart.report-chart-users
+        #financial-performance.tabcontent-users
+          h2 Financial Performance
+          .graphical-reports-container-users
+            select#report-type-select
+              option(value='bar') Bar Chart
+              option(value='line') Line Chart
+              option(value='pie') Pie Chart
+            canvas#financial-report-chart.report-chart-users
+    // Register Baby
+    #registerBaby.section-users
+      .container-babyRegistration
+        h1.h1-babyRegistration Baby Registration Form
+        form#babyRegistrationForm.babyRegistrationForm
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='firstNameBabyRegistration') First Name:
+            input#firstNameBabyRegistration.input-babyRegistration(type='text' name='firstNameBabyRegistration')
+            span#errorFirstName.error
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='lastNameBabyRegistration') Last Name:
+            input#lastNameBabyRegistration.input-babyRegistration(type='text' name='lastNameBabyRegistration')
+            span#errorLastName.error
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='genderBabyRegistration') Gender:
+            select#genderBabyRegistration.input-babyRegistration(name='genderBabyRegistration')
+              option(value='') Select Gender
+              option(value='male') Male
+              option(value='female') Female
+            span#errorGender.error
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='age') Age:
+            input#age.input-babyRegistration(type='number' name='age')
+            span#errorAge.error
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='location') Location:
+            input#location.input-babyRegistration(type='text' name='location')
+            span#errorLocation.error
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='broughtBy') Brought By:
+            input#broughtBy.input-babyRegistration(type='text' name='broughtBy')
+            span#errorBroughtBy.error
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='timeOfArrival') Time of Arrival:
+            input#timeOfArrival.input-babyRegistration(type='datetime-local' name='timeOfArrival')
+            span#errorTimeOfArrival.error
+          .form-group-babyRegistration
+            label.label-babyRegistration Father&apos;s Name:
+            input#fathersName.input-babyRegistration(type='text' name='fathersName')
+            label
+              input#deceasedFather(type='checkbox' name='deceasedFather')
+              |  Deceased
+          .form-group-babyRegistration
+            label.label-babyRegistration Mother&apos;s Name:
+            input#mothersName.input-babyRegistration(type='text' name='mothersName')
+            label
+              input#deceasedMother(type='checkbox' name='deceasedMother')
+              |  Deceased
+          .form-group-babyRegistration
+            label.label-babyRegistration(for='feeType') Fee Type:
+            select#feeType.input-babyRegistration(name='feeType')
+              option(value='') Select Fee Type
+              option(value='halfDay') Half Day (UGX 10,000)
+              option(value='fullDay') Full Day (UGX 15,000)
+            span#errorFeeType.error
+          .form-group-babyRegistration
+            button.button-babyRegistration(type='submit') Register Baby
+        #successMessage.success-message
+  // Applications
+  #applications.section-users
+    .container-applicationCheckAdmin
+      h1.h1-applicationCheckAdmin Daystar Daycare Application Management
+      // Baby Applications Section
+      section#babyApplications
+        h2.h2-applicationCheckAdmin Baby Applications
+        ul#babyList.adminApplicationCheck
+      // Employee Applications Section
+      section#employeeApplications
+        h2 Employee Applications
+        ul#employeeList.adminApplicationCheck
+    // Modal for Application Details
+    #modal.modal
+      .modal-content
+        span.close &times;
+        #applicationDetails
+        .button-group
+          button#acceptButton.buttonAcceptApplicationCheckAdmin Accept
+          button#rejectButton.buttonRejectApplicationCheckAdmin Reject
+  // Babies
+  #babies.section-users
+    .container-babyReportAdmin
+      h1.h1-babyReportAdmin Daystar Daycare Baby Report
+      form#reportFormBabyAdmin.form-babyReportAdmin
+        label.label-babyReportAdmin(for='fromDateBabyReportAdmin') From:
+        input#fromDateBabyReportAdmin.input-babyReportAdmin(type='date' name='fromDateBabyReportAdmin')
+        label.label-babyReportAdmin(for='toDateBabyReportAdmin') To:
+        input#toDateBabyReportAdmin.input-babyReportAdmin(type='date' name='toDateBabyReportAdmin')
+        button.button-babyReportAdmin(type='submit') Generate Report
+        button#exportButtonBabyReportAdmin.button-babyReportAdmin(type='button') Export Report
+      table#enrollmentTableBabyReportAdmin.table-babyReportAdmin
+        thead.thead-babyReportAdmin
+          tr.tr-babyReportAdmin
+            th.th-babyReportAdmin Full Name
+            th.th-babyReportAdmin Baby Number
+            th.th-babyReportAdmin Date Enrolled
+            th.th-babyReportAdmin Status
+            th.th-babyReportAdmin Room
+            th.th-babyReportAdmin Sitter
+            th.th-babyReportAdmin Remarks
+        tbody#enrollmentListBabyReportAdmin.enrollmentList-babyReportAdmin
+  // Staff
+  #staff.section-users
+    .container-staffReportAdmin
+      h1.h1-staffReportAdmin Daystar Daycare Staff Report
+      form#form-staffReportAdmin.form-staffReportAdmin
+        label.label-staffReportAdmin(for='fromDatestaffReportAdmin') From:
+        input#fromDatestaffReportAdmin.input-staffReportAdmin(type='date' required='')
+        label.label-staffReportAdmin(for='toDatestaffReportAdmin') To:
+        input#toDatestaffReportAdmin.input-staffReportAdmin(type='date' required='')
+        label.label-staffReportAdmin(for='staffTypestaffReportAdmin') Staff Type:
+        select#staffTypestaffReportAdmin.select-staffReportAdmin
+          option(value='accounts') Accounts
+          option(value='procurement') Procurement
+          option(value='sitters') Sitters
+          option(value='support') Support Staff
+          option(value='administration') Administration
+          option(value='all') All Staff
+        button#generateReportstaffReportAdmin.button-staffReportAdmin(type='button') Generate Report
+        button#exportReportstaffReportAdmin.button-staffReportAdmin(type='button' disabled='') Export Report
+      table#reportTablestaffReportAdmin.table-staffReportAdmin
+        thead.thead-staffReportAdmin
+          tr
+            th Name
+            th Staff Number
+            th Enrollment Date
+            th Department
+            th Status
+            th Remarks
+        tbody#tbody-staffReportAdmin.tbody-staffReportAdmin
+          // Table rows will be dynamically populated
+    // Modal for displaying staff details
+    #modal-staffReportAdmin.modal-staffReportAdmin
+      .modal-content-staffReportAdmin
+        span.close-staffReportAdmin &times;
+        h2#staffName-staffReportAdmin.staffName-staffReportAdmin
+        p#checkInTime-staffReportAdmin.checkInTime-staffReportAdmin
+        p#babiesUnderCare-staffReportAdmin.babiesUnderCare-staffReportAdmin
+  // Requisitions
+  #requisitions.section-users
+    .container-resCheckAdmin
+      h2.h2-resCheckAdmin Resource Approval Log
+      #logContainer.log-container-resCheckAdmin
+        // Resource request entries will be dynamically added here
+    // Resource details popup
+    #popup.popup-resCheckAdmin
+      .popup-content-resCheckAdmin
+        span.close-btn-resCheckAdmin(onclick='closePopup()') &times;
+        h3 Resource Details
+        #resourceDetails.resource-details-resCheckAdmin
+          // Resource details will be dynamically added here
+        #totalAmount.total-amount-resCheckAdmin
+        .action-buttons-resCheckAdmin
+          button#saveButton.action-button-resCheckAdmin(onclick='saveEdits()') Save
+          button#approveButton.action-button-resCheckAdmin.approve-resCheckAdmin(onclick='approveRequest()' disabled='') Approve
+          button#rejectButton.action-button-resCheckAdmin.reject-resCheckAdmin(onclick='rejectRequest()' disabled='') Reject
+  // Live Feed
+  #liveFeed.section-users
+    #cameraGrid.camera-grid
+      // Camera containers will be dynamically added here
+  // Your Profile
+  #yourProfile.section-users
+    .container-breach
+      h1.h1-breach System Breach Log
+      #log
+div(w3-include-html='/pages/footer.html')
+script(src='https://cdn.jsdelivr.net/npm/chart.js')
+script(src='/js/logout.js')
+script(src='/js/adminrequisitions.js')
+script(src='/js/admin.js')
+script(src='/css/bootstrap/js/bootstrap.bundle.js')
+script(src='/js/add.js')

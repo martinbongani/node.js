@@ -36,15 +36,20 @@ router.post("/login", passport.authenticate("local",{failureRedirect: "/register
 });
 
 
-router.get(/"logout", (req, res) => {
+router.get("/logout", (req, res) => {
   if(req.session){
     req.session.destroy((error)=>{
       if(error){
+        console.log("------------------", error)
         return res.status(500).send("Error logging out")
       }
-      res.redirect("/login");
+      res.redirect("/");
     })
   }
+})
+
+router.get("/", (req, res) => {
+  res.render("index")
 })
 
 module.exports = router;
