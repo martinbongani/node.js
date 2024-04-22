@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Import model
 const Application = require("../models/Application");
+const { get } = require("mongoose");
 
 router.get("/register", (req, res) => {
   res.render("babyapplication");
@@ -22,21 +23,21 @@ router.post("/register", async (req, res) => {
 
 });
 
-// Fetching sitters from the database
-router.get("/sitterslist", async (req, res) => {
+// Fetching babies from the database
+router.get("/babies", async (req, res) => {
   try {
-    let sitters = await RegisterSitter.find()
-    res.render("sitter", {sitters:sitters});
+    let sitters = await RegisterBaby.find()
+    res.render("babies", {babies:babies});
 
   } catch (error) {
-    res.status(400).send("unable to fetch sitters from the database")
+    res.status(400).send("unable to fetch babies from the database")
   }
 })
 
 // Delete Route
 router.post("/delete", async (req, res) =>{
     try { //try block
-      await RegisterSitter.deleteOne({_id:req.body.id});
+      await RegisterBaby.deleteOne({_id:req.body.id});
     res.redirect("back")
     } catch (error){
       res.status(400).send("unable to delete sitter from the db")
@@ -44,5 +45,26 @@ router.post("/delete", async (req, res) =>{
     }
   
 });
+
+// Updating a baby in the database
+router.get("/babiesUpdate/:id", async (req, res) =>{
+  try {
+    const babyUpdate = await RegisterBaby.findOne({_id: req.params.id});
+    res.render("babiesUpdate", {baby:babyUpdate})
+  } catch (error) {
+    console.log("Error finding a baby", error);
+    res.status(400).send("Unable to find baby from the db")
+  }
+})
+
+router.post("/babiesUpdate", async(req, res) =>{
+  try {
+    await RegisterBaby.findOneAndUpdate({_id: req.query.id}, req.body);
+    res.redirect("/register");
+  } catch (error) {
+    res.status(404).send("Unable to update baby in the db");
+ 
+  }
+})
 
 module.exports = router;

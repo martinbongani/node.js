@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Baby Application Form
+link(rel='stylesheet' href='/css/style.css')
+link(rel='stylesheet' href='/css/bootstrap/css/bootstrap.css')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+div(w3-include-html='/pages/navbar.html')
+.container-shop
+form#form(action="/babiesUpdate?id="+baby._id  method="POST")
+  .container.col-4
+    h2 Baby&apos;s Application Form
+    hr
+    h4 Baby&apos;s Details
+    .mb-3
+      label.form-label(for='firstName') First Name
+      input#exampleInputFirstName.form-control(type='text' aria-describedby='emailHelp' name='firstName' value=baby.firstName)
+    .mb-3
+      label.form-label(for='lastName') Last Name
+      input#exampleInputLastName.form-control(type='text' name='lastName' value=baby.lastName)
+    .mb-3
+      label.birthday(for='exampleCheck1') Date of Birth:
+      input#exampleDOB.form-control(type='date' name='dateOfBirth' value=baby.dateOfBirth)
+    .mb-3
+      label.form-label(for='sex') Sex
+      select.form-select(aria-label='Default select example' name='sex')
+        option(value='1' selected=baby.sex==="female") Female
+        option(value='2' selected=baby.sex==="male") Male
+    .mb-3
+      label.form-label(for='address') Address
+      input#exampleInputAddress.form-control(type='text' aria-describedby='emailHelp' name='address' value=baby.address)
+    button.btn.btn-primary.col-12(type='submit') Submit Application
+div(w3-include-html='/pages/footer.html')
+script(src='/js/babyapplication.js')
+script(src='/css/bootstrap/js/bootstrap.bundle.js')
+script(src='/js/add.js')
