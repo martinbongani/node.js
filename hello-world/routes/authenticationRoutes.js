@@ -32,7 +32,11 @@ router.get("/login", (req, res) => {
 
 // Installing the async function
 router.post("/login", passport.authenticate("local",{failureRedirect: "/register"}), (req, res) => {
-  res.redirect("/registersitter") // Redirect page incase login fails
+  req.session.user = req.user
+  if(req.user.role === "admin"){
+    res.redirect("/admindash")
+  }
+  else {res.send("You don't have a role in the system")}
 });
 
 
@@ -50,6 +54,10 @@ router.get("/logout", (req, res) => {
 
 router.get("/", (req, res) => {
   res.render("index")
+})
+
+router.get("/admindash", (req, res) => {
+  res.render("admindashboard")
 })
 
 module.exports = router;
